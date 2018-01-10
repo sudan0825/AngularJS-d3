@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>AngularJS-D3-Pie-Bar-Directive</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Dan Su">
+        <link rel="stylesheet" href="graph.css" >
+    </head>
+    <body ng-app="angularD3" ng-controller="mainCtrl">
+        
+        
+        <div id="condition">
+            <div>
+                Width: <input ng-model="width">
+                <br>
+                Height:<input ng-model="height">
+                <br>
+                Radius:<input ng-model="r">
+                <br>
+                <button ng-click="drawing()">Submit</button>
+            </div>
+            <div ng-repeat="x in data">
+                {{x.year}}:{{x.production}}
+                <br>
+                <input type="range" min="0" max="1000" step="50" ng-change="drawing()" ng-model="x.production">
+
+            </div>
+            
+            
+        </div>
+
+
+        <div id="drawingfield"></div>
+        <bar-graph bardata="data"></bar-graph>
+      
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="graph.js"></script>
+    <script src="bar.js"></script>
+</html>
